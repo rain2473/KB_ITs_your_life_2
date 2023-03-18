@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수입&지출 상세</title>
+</head>
+<body>
+    <h1>수입&지출 상세</h1>
+    내역 : {{object.title}} <br>
+    유형 : {{object.contents}}<br>
+    금액 : {{object.amount}}원<br>
+    <hr>
+    <a href="{% url 'update' object.pk %}">수정</a> <br>
+    <a href="{% url 'delete' object.pk %}">삭제</a> <br>
+    <a href="{% url 'list' %}">수입&지출 목록</a> <br>
+</body>
+</html>

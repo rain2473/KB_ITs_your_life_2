@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html land ='ko'>
+<head>
+    <meta charset = 'UTF-8'>
+    <meta heep-equiv = 'X-UA-Compatible'>
+    <meta name = 'viewport' content = "width=device-width, initial-sclae=1.0" >
+    <title>
+        Document
+    </title>
+    <script>
+        // 로또번호
+        function make_lotto(){
+            var r = Math.floor( Math.random() * 45)+1
+            return r
+        }
+        function get_lotto(){
+            var lottos = []
+            var switcher = 1
+            while(lottos.length!=6){
+                var tmp = make_lotto()
+                for( var i=0;i<=lottos.length;i++){
+                    if (tmp == lottos[i]){switcher = 0}
+                }
+                if(switcher == 1){lottos.push(tmp)}
+        }
+        return lottos
+    }
+        console.log('lottos = ', get_lotto())
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html land ='ko'>
+<head>
+    <meta charset = 'UTF-8'>
+    <meta heep-equiv = 'X-UA-Compatible'>
+    <meta name = 'viewport' content = "width=device-width, initial-sclae=1.0" >
+    <title>
+        DOM 1
+    </title>
+    <script>
+        var count = 0
+        window.onload = function(){
+            var inc = document.querySelector('#inc')
+            inc.onclick = function(){
+                count++
+                document.querySelector('#msg').innerText = count
+            }
+            var dec = document.querySelector('#dec')
+            dec.onclick = function(){
+                count--
+                document.querySelector('#msg').innerText = count
+            }
+    }
+    </script>
+</head>
+<body>
+  <button id = 'inc'>증가</button>
+  <button id = 'dec'>감소</button>
+  <div id = 'msg'></div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수입&지출 목록</title>
+</head>
+<body>
+    <h1>수입&지출 목록</h1>
+    <a href="{% url 'create_income' %}">수입 등록</a> <br>
+    <a href="{% url 'create_outcome' %}">지출 등록</a> <br>
+    <hr>
+    {% for ar in object_list %}
+    <hr>
+    <h3 style="font-size:25px">{{ar.title}} ({{ar.contents}} : {{ar.amount}}원) <a style="font-size:15px" href="{% url 'detail' ar.pk %}">상세보기</a>
+        <p style="font-size:12px">작성일시 :  {{ar.created_at}}
+        <br> 수정일시 : {{ar.updated_at}}</p>
+    </h3>
+    {% endfor %}
+</body>
+</html>

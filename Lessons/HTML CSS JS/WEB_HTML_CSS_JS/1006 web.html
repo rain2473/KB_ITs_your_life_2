@@ -1,0 +1,63 @@
+<!-- 
+인라인 스타일 : 가장 높은 우선순위(가중치 : 1000)
+<p style=""></p>
+
+** CSS 선택자
+- 태그선택자 가중치 1
+    p{color:red;} # 페이지내 모든 < p>
+
+- 클래스선택자 가중치 10
+    .p{color: yellow;} # 페이지내 모든 class = 'p' 인 태그
+
+- ID 선택자 가중치 100
+    #p{color: blue;} # ID = 'p'인 태그
+
+- 자식선택자
+    선택자 1 > 선택자 2 {color:cyan;} 선택자 1을 부모로 하는 자식 선택자2
+    -- div > a -> <a>Hello</a>
+    <div>
+        <a>Hello</a>
+        <p>
+            <a>Bye</a>
+        </p>
+    </div>
+
+- 자손선택자(공공백백공공백)
+    선택자 1   선택자 2 {color:cyan;} 선택자 1을 조상으로 하는 자손 선택자2
+    -- div > a -> <a>Hello</a>  <a>Bye</a>
+    <div>
+        <a>Hello</a>
+        <p>
+            <a>Bye</a>
+        </p>
+    </div>
+
+** viewport : 반응형 웹에 필수
+    user scalable
+    display: none; =>  인쇄시 지울것
+-->
+
+<!DOCTYPE html>
+<html land ='ko'>
+<head>
+    <meta charset = 'UTF-8'>
+    <meta heep-equiv = 'X-UA-Compatible'>
+    <meta name = 'viewport' content = "width=device-width, initial-sclae=1.0" >
+    <title>
+        Document
+    </title>
+    <style>
+        @media print{
+            .small {display: none;}
+        }
+    </style>
+</head>
+<body>
+    <div class="big">
+        <h1>큰 제목</h1>
+    </div>
+    <div class="small">
+        <h1>작은 제목</h1>
+    </div>
+</body>
+</html>

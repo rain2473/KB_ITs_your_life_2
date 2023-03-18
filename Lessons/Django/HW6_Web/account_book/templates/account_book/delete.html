@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수입&지출 상세</title>
+</head>
+<body>
+    <h1>수입&지출 상세</h1>
+    내역 : {{object.title}} <br>
+    유형 : {{object.contents}}<br>
+    금액 : <pre>{{object.amount}}</pre>
+    <hr>
+	<h4>Delete</h4>
+    </div>
+    <p style="font-size: 12px;">Enter를 누르면 삭제됩니다.</p>
+        <form action="{% url 'delete' object.pk %}" method="post">
+            {% csrf_token %}
+            <input type="삭제">
+        </form>
+    </div>
+    <hr>
+</body>
+</html>

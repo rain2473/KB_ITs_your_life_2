@@ -1,0 +1,67 @@
+<!-- 
+1.요소에 접근(document.querySelector(선택자)/querySelectorAll(선택자)
+  내용접근(.innerText / .innerHTML) 태그를 입력하면 태그의 동작 여부
+  속성접근( .getAttribute(속성명) / .setAttribute(속성명,값) )
+  이벤트등록( .on이벤트이름 = 함수 )
+  CSS접근( .style.속성명="값" )
+2. form태그 접근
+  폼태그검색.submit() 전송
+  form전송시 onsubmit 자동실행.
+  onsubmit의 함수가 false반환시 전송중단. 함수를 통해 전송여부를 조정할수있다
+  폼요소는 form.elements[name/index]로 접근한다
+  input/textarea의 입력값은 value를 통해 접근한다.
+  select.options[인덱스].value
+  select.value는 options의 길이
+  select.selectedIndex는 선택된 option의 인덱스
+  라디오버튼 / 체크박스.value / checked: true/false
+  
+  form.onsubmit 전송이벤트
+  input(text,radio,checkbox),textarea,select .onchange 변경이벤트
+  
+3. 노드삭제 : 부모노드.removeChild(자식노드)
+4. 노드추가 : 부모노드.appendChild(자식노드)
+
+
+** 이벤트 등록법
+1. <div on이벤트이름="함수호출">
+   <button onclick="increase()">증가</button>
+2. documnet.querySelector("#id").onclick = 함수
+3. documnet.querySelector("#id").addEventListener(이베트명,함수명,캡쳐여부) 
+-->
+
+<!DOCTYPE html>
+<html land ='ko'>
+<head>
+    <meta charset = 'UTF-8'>
+    <meta heep-equiv = 'X-UA-Compatible'>
+    <meta name = 'viewport' content = "width=device-width, initial-sclae=1.0" >
+    <title>
+        DOM 1
+    </title>
+    <script>
+        var count = 0
+        function show_count(){
+            document.querySelector('#msg').innerHTML = "<b>"+count+"</b>"
+            // document.querySelector('#msg').innerText = "<b>"+count+"</b>" // <b>7</b> 이런 형식이라 잘 안씀.
+        }
+        function increase(){
+            count ++
+            show_count()
+        }
+        function decrease(){
+            count --
+            show_count()
+        }
+        // 현재 웹페이지 로딩완료시 자동실행함수 등록
+        window.onload = function(){
+            document.querySelector('#dec').onclick = decrease //decrease 위에 선언해야함
+    }
+    </script>
+</head>
+<body>
+    <button id = 'inc' onclick="increase()">증가</button>
+    <button id = 'dec'>감소</button>
+    <div id = 'msg'></div>
+    <img src="https://imgnews.pstatic.net/image/092/2022/10/07/0002270097_001_20221007085202103.png?type=w647"alt='공부하는 이미지'>
+</body>
+</html>

@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Intro</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        function get_weather(){
+            $.ajax({
+                url : 'weather.xml',
+                success : function(data){
+                    var ctg = $(data).find('category').text()
+                    $('#msg').append('<h3>'+ctg+'</h3>')
+                    var datas = $(data).find("data")
+                    $('#msg').append('<p>갯수 : '+datas.length+'</p>')
+                    for(var i =0;i<datas.length;i++){
+                        var dt = $(datas[i])
+                        var day = dt.find('day').text()
+                        var hour = dt.find('hour').text()
+                        var temp = dt.find('temp').text()
+                        var wfkor = dt.find('wfkor').text()
+                        var s = day+' '+hour+'시까지'+temp+'도'+wfkor
+                        $('#msg').append('<p>'+s+'</p')
+                    }//end for
+                }
+            })
+        }
+        $(function(){//페이지 로딩후 자동실행 함수
+            $('#weather_btn').click(function(){
+                get_weather() //함수선언 먼저
+            })
+        })
+    </script>
+</head>
+<body>
+    <button id="weather_btn">날씨</button>
+    <div id="'msg"></div>
+</body>
+</html>

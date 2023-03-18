@@ -1,0 +1,12 @@
+<div>
+    <form action="/board/update/{{ brd.id }}" method="post">
+        {% csrf_token %}
+        <div>
+            <input type="text" name ="title" value={{ board.title }}>
+            <br>
+            <textarea cols="50" rows="5" name="content">{{ brd.content }}</textarea><br>
+        </div>
+        <button type="submit">수정</button>
+    </form>
+</div>
+<a href="{% url 'list'  %}">목록</a>

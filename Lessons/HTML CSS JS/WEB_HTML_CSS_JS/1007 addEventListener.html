@@ -1,0 +1,54 @@
+<!-- 여러개의 함수 등록, 버튼 한번으로 모두 실행 -->
+<!-- 캡쳐 방식 동작 ( 버튼Tag가 눌리면, 버튼 위에 쌓인 Tag가 전달하여 버튼의 Eventhandler 실행) -->
+<!DOCTYPE html>
+<html land ='ko'>
+<head>
+    <meta charset = 'UTF-8'>
+    <meta heep-equiv = 'X-UA-Compatible'>
+    <meta name = 'viewport' content = "width=device-width, initial-sclae=1.0" >
+    <title>
+        DOM 1
+    </title>
+    <script>
+        var count = 0
+        function show_count(){
+            document.querySelector('#msg').innerHTML = "<b>"+count+"</b>"
+            // document.querySelector('#msg').innerText = "<b>"+count+"</b>" // <b>7</b> 이런 형식이라 잘 안씀.
+        }
+        function increase(){
+            count ++
+            show_count()
+        }
+        function decrease(){
+            count --
+            show_count()
+        }
+        function fn_show_msg(text){
+            document.querySelector('#msg').innerHTML = text
+        }
+        function fn_img(){
+            var img = document.querySelector('#img1')
+            var src = img.getAttribute('src')
+            fn_show_msg(src)
+            img.setAttribute('src',"https://imgnews.pstatic.net/image/092/2022/10/07/0002270107_001_20221007093903858.jpg?type=w647"            )
+        }
+        function fn_change_color(parms){
+            var color_array = ['red','blue']
+            idx = count%2
+            var msg = document.querySelector('#msg')
+            msg.style.color = color_array[idx]
+        }
+    </script>
+</head>
+<body>
+    <button id = 'inc' onclick="increase()">증가</button>
+    <button id = 'dec'>감소</button>
+    <button id = 'img_btn' onclick="fn_img()">이미지 접근</button>
+    <button id = 'img_btn' onclick="fn_change_color()">색깔변경</button>
+    <div id = 'msg'></div>
+    <img id = 'img1' src="https://imgnews.pstatic.net/image/092/2022/10/07/0002270097_001_20221007085202103.png?type=w647"alt='공부하는 이미지'>
+    <script>
+            document.querySelector('#dec').onclick = decrease //decrease 위에 선언해야함
+    </script>
+</body>
+</html>
